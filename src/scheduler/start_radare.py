@@ -77,7 +77,7 @@ class RadareRunner:
 
 
 def start_radare_instance(port, binary_path):
-    command = 'r2 -q -c=H -e http.bind=0.0.0.0 -e http.port={} -e http.browser= {}'.format(port, binary_path)
+    command = 'r2 -q -c=h -e http.bind=0.0.0.0 -e http.port={} {}'.format(port, binary_path)
     with Popen(command.split(' '), shell=False, stdout=PIPE, stderr=PIPE) as radare_process:
         sleep(RADARE_TIMEOUT)
         radare_process.send_signal(signal.SIGKILL)
